@@ -10,5 +10,15 @@ pipeline {
         echo "hello"
       }
     }
+    stage('catting README') {
+      when {
+        branch "fix-*"
+      }
+      steps {
+        sh '''
+	  cat README.md
+	'''
+      }
+    }
   }
 }
